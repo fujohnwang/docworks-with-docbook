@@ -11,7 +11,7 @@ or
 	mvn -PcreateX -Dmodule=the path you want to create for your article
 
 The former command will create a "tmpdir" under src/main/docbook, and copy article template and necessary images(addons and callout icons) to it, you can rename it after the command run. Of course, if you want to customize the name of the folder to be created, you can run the latter command.
-	OK, that's for src/main/docbook folder.
+OK, that's for src/main/docbook folder.
 	
 ### 2- src/main/resources  
 I have collected necessary resources and put them under this folder, most of the time, you don't need to worry about these things.
