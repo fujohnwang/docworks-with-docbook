@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<article version="5.0" xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<title></title>
+	<info>
+		<author>
+			<personname>王福强(Darren.Wang)</personname>
+			<email>fujohnwang@gmail.com</email>
+		</author>
+		<pubdate></pubdate>
+	</info>
+
+	<para></para>
+
+	<appendix>
+		<title>参考文档</title>
+		<bibliolist>
+			<biblioentry>
+				<title></title>
+				<bibliosource>
+					http://spring21.javaeye.com
+				</bibliosource>
+				<author>
+					<personname></personname>
+				</author>
+			</biblioentry>
+		</bibliolist>
+	</appendix>
+</article>

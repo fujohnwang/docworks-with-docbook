@@ -1,0 +1,245 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>cn.spring21</groupId>
+	<artifactId>docworks</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+
+	<name>docworks</name>
+	<url>http://fujohnwang.blogspot.com</url>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.agilejava.docbkx</groupId>
+				<artifactId>docbkx-maven-plugin</artifactId>
+				<version>2.0.11</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.docbook</groupId>
+						<artifactId>docbook-xml</artifactId>
+						<version>4.4</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>net.sf.xslthl</groupId>
+						<artifactId>xslthl</artifactId>
+						<version>2.0.1</version>
+						<scope>runtime</scope>
+					</dependency>
+					<dependency>
+						<groupId>net.sf.offo</groupId>
+						<artifactId>fop-hyph</artifactId>
+						<version>1.2</version>
+						<scope>runtime</scope>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>generate-html</id>
+						<phase>package</phase>
+						<goals>
+							<goal>generate-html</goal>
+						</goals>
+						<configuration>
+							<includes>**/*.dbx,**/*.xml</includes>
+							<targetDirectory>${basedir}/target/docs/html</targetDirectory>
+							<chunkedOutput>false</chunkedOutput>
+							<useExtensions>1</useExtensions>
+							<highlightSource>1</highlightSource>
+							<highlightXslthlConfig>${basedir}/src/main/resources/highlighters/xslthl-config.xml</highlightXslthlConfig>
+							<imgSrcPath>${basedir}/src/main/resources/images</imgSrcPath>
+							<xhtmlCustomization>${basedir}/src/main/resources/xsl/html.xsl</xhtmlCustomization>
+							<htmlCustomization>${basedir}/src/main/resources/xsl/html.xsl</htmlCustomization>
+							<htmlStylesheet>${basedir}/src/main/resources/css/html.css</htmlStylesheet>
+							<postProcess>
+								<copy todir="${basedir}/target/docs/html">
+									<fileset dir="${basedir}/src/main/docbook/" includes="**/images/**/*" />
+								</copy>
+							</postProcess>
+						</configuration>
+					</execution>
+					<execution>
+						<id>generate-pdf</id>
+						<phase>site</phase>
+						<goals>
+							<goal>generate-pdf</goal>
+						</goals>
+						<configuration>
+							<includes>**/*.xml</includes>
+							<targetDirectory>${basedir}/target/docs/pdf/</targetDirectory>
+							<ansi>true</ansi>
+							<paperType>A4</paperType>
+							<alignment>left</alignment>
+							<axfExtensions>0</axfExtensions>
+							<atiXsl11Bookmarks>1</atiXsl11Bookmarks>
+							<titleFontFamily>SimHei</titleFontFamily> <!-- \/ fonts -->
+							<titleFontset>SimHei</titleFontset>
+							<bodyFontFamily>SimKai</bodyFontFamily>
+							<bodyFontset>SimKai</bodyFontset>
+							<sansFontFamily>SimKai</sansFontFamily>  <!-- /\ fonts -->
+							<bodyFontMaster>10</bodyFontMaster>
+							<bodyMarginBottom>0.5in</bodyMarginBottom>
+							<bodyMarginTop>0.5in</bodyMarginTop>
+							<fop1Extensions>1</fop1Extensions> <!-- ***use FOP0.90 -->
+							<keepRelativeImageUris>1</keepRelativeImageUris> <!-- *** images embed -->
+							<l10nGentextDefaultLanguage>en</l10nGentextDefaultLanguage>
+							<l10nGentextLanguage>zh</l10nGentextLanguage>
+							<passivetexExtensions>0</passivetexExtensions>
+							<fonts>
+								<font>
+									<name>SimSun</name>
+									<style>normal</style>
+									<weight>normal</weight>
+									<embedFile>${basedir}/src/main/resources/fonts/SimSun.ttf</embedFile>
+									<metricsFile>${basedir}/src/main/resources/fonts/SimSun.xml</metricsFile>
+								</font>
+								<font>
+									<name>SimFang</name>
+									<style>normal</style>
+									<weight>normal</weight>
+									<embedFile>${basedir}/src/main/resources/fonts/simfang.ttf</embedFile>
+									<metricsFile>${basedir}/src/main/resources/fonts/simfang.xml</metricsFile>
+								</font>
+								<font>
+									<name>SimHei</name>
+									<style>normal</style>
+									<weight>normal</weight>
+									<embedFile>${basedir}/src/main/resources/fonts/simhei.ttf</embedFile>
+									<metricsFile>${basedir}/src/main/resources/fonts/simhei.xml</metricsFile>
+								</font>
+								<font>
+									<name>SimKai</name>
+									<style>normal</style>
+									<weight>normal</weight>
+									<embedFile>${basedir}/src/main/resources/fonts/simkai.ttf</embedFile>
+									<metricsFile>${basedir}/src/main/resources/fonts/simkai.xml</metricsFile>
+								</font>
+							</fonts>
+							<preProcess>
+								<copy todir="${basedir}/target/docs/pdf">
+									<fileset dir="${basedir}/src/main/docbook/" includes="**/images/**/*" />
+								</copy>
+							</preProcess>
+						</configuration>
+					</execution>
+				</executions>
+				<configuration>
+					<sourceDirectory>${basedir}/src/main/docbook</sourceDirectory>
+					<xincludeSupported>true</xincludeSupported>
+					<generateToc>appendix toc,title
+						article/appendix nop
+						article
+						toc,title
+						book toc,title,figure,table,example,equation
+						chapter toc
+						toc,title
+						part toc,title
+						preface
+						toc,title
+						qandadiv toc
+						qandaset toc
+						reference toc,title
+						sect1 toc
+						sect2 toc
+						sect3 toc
+						sect4 toc
+						sect5 toc
+						section toc
+						set toc,title
+					</generateToc>
+					<tocMaxDepth>8</tocMaxDepth>
+					<tocSectionDepth>8</tocSectionDepth>
+					<generateSectionTocLevel>8</generateSectionTocLevel>
+					<chapterAutolabel>true</chapterAutolabel>
+					<sectionAutolabel>true</sectionAutolabel>
+					<sectionAutolabelMaxDepth>8</sectionAutolabelMaxDepth>
+					<sectionLabelIncludesComponentLabel>true</sectionLabelIncludesComponentLabel>
+					<tableFootnoteNumberFormat>1</tableFootnoteNumberFormat>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-project-info-reports-plugin</artifactId>
+				<version>2.1.2</version>
+				<!-- add this plug-in and change it version from 2.2 to 2.1.2 to prevent 
+					ArrayIndexOutOfBoundException -->
+			</plugin>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.2-beta-5</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/distribution.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>distribute</id>
+						<phase>package</phase>
+						<goals>
+							<goal>assembly</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<profiles>
+		<profile>
+			<id>create</id>
+			<build>
+				<defaultGoal>antrun:run</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<configuration>
+							<tasks>
+								<property name="location" value="${basedir}/src/main/docbook/tmpdir" />
+								<mkdir dir="${location}" />
+								<copy file="src/main/resources/templates/article-template.xml"
+									todir="${location}">
+								</copy>
+								<copy todir="${location}/images">
+									<fileset dir="src/main/resources/images" />
+								</copy>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+		<profile>
+			<id>createX</id>
+			<build>
+				<defaultGoal>antrun:run</defaultGoal>
+				<plugins>
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-antrun-plugin</artifactId>
+						<configuration>
+							<tasks>
+								<mkdir dir="${basedir}/src/main/docbook/${module}" />
+								<copy file="src/main/resources/templates/article-template.xml"
+									todir="${basedir}/src/main/docbook/${module}">
+								</copy>
+								<copy todir="${basedir}/src/main/docbook/${module}/images">
+									<fileset dir="src/main/resources/images" />
+								</copy>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+	</profiles>
+</project>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xi="http://www.w3.org/2001/XInclude" targetNamespace="http://www.w3.org/2001/XInclude">
+
+	<xs:element name="include">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs='0' maxOccurs='unbounded'>
+				<xs:element ref='xi:fallback' />
+				<xs:any namespace='##other' processContents='lax' />
+				<xs:any namespace='##local' processContents='lax' />
+			</xs:choice>
+			<xs:attribute name="href" type="xs:anyURI" use="required" />
+			<xs:attribute name="parse" use="optional" default="xml">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="xml" />
+						<xs:enumeration value="text" />
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:attribute>
+			<xs:attribute name="encoding" type="xs:string" use="optional" />
+			<xs:anyAttribute namespace="##other" processContents="lax" />
+		</xs:complexType>
+	</xs:element>
+
+	<xs:element name="fallback">
+		<xs:complexType mixed="true">
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="xi:include" />
+				<xs:any namespace="#other" processContents="lax" />
+			</xs:choice>
+			<xs:anyAttribute />
+		</xs:complexType>
+	</xs:element>
+
+</xs:schema>

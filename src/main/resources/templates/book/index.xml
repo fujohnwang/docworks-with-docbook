@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<book version="5.0" xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude">
+	<info>
+		<title>Simple, Yet Powerful Ideas In Software Development</title>
+		<authorgroup>
+			<author>
+				<personname>王福强(fujohnwang)</personname>
+			</author>
+		</authorgroup>
+
+		<date>1/1/1900</date>
+		<releaseinfo>1.01.00</releaseinfo>
+
+		<abstract>
+			<para>
+				TBD...
+		</para>
+		</abstract>
+
+		<keywordset>
+			<keyword>Simple ideas</keyword>
+			<keyword>Powerful ideas</keyword>
+			<keyword>Software development</keyword>
+		</keywordset>
+
+	</info>
+	<xi:include href="./chapter-template.xml" />
+</book>

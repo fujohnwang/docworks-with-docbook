@@ -1,0 +1,42 @@
+
+Writing Documentation Using DocBook
+http://opensource.bureau-cornavin.com/crash-course/en/
+
+
+<ulink url="http://www.kde.org">my favorite web site</ulink>
+In docbook 5, the format should change to :
+<link xlink:href="http://commons.apache.org/daemon/">Jakarta Commons Daemon</link>
+
+
+<mediaobject>
+	<imageobject> 
+		<imagedata fileref="rectangles.png" format="PNG" /> 
+	</imageobject>
+</mediaobject>
+
+
+
+<itemizedlist>
+<listitem><para>Apples - my favorite fruit.</para></listitem>
+<listitem><para>Oranges - yummy, but sticky.</para></listitem>
+<listitem><para>Bananas - they ripen too quickly!</para></listitem>
+<listitem><para>Grapefruit - great when eaten in halves.</para></listitem>
+<listitem><para>Black Beans - go well with rice.</para></listitem>
+</itemizedlist>
+
+
+<orderedlist numeration="arabic">
+<listitem><para>Wake up.</para></listitem>
+<listitem><para>Eat Breakfast.</para></listitem>
+<listitem><para>Take a shower.</para></listitem>
+<listitem><para>Contemplate my navel.</para></listitem>
+<listitem><para>Go to Sleep.</para></listitem>
+</orderedlist>
+
+
+<programlisting language="xml">
+10 PRINT "HELLO WORLD"
+20 GOTO 10
+</programlisting>
+
+
