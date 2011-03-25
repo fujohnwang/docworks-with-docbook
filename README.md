@@ -6,7 +6,7 @@ To start to use it, you need to know some common locations:
 you put your docbook writings under this directory, sub-directories are allowed. In practice, you should create its own sub-directory for your articles, the reason is with each of your article, it not only contains words but also pictures and other media materials. So usually, before starting to write a new article, you create a sub-folder under src/main/docbook and  at least create an "images" sub-folder to hold the images of your article, the real docbook writing will be dropped under this sub-folder directly. 
 
 Sounds tedious, don't worry, I create some easy things to help you on this:
-	**mvn -Pcreate**
+	mvn -Pcreate
 or 
 	mvn -PcreateX -Dmodule=the path you want to create for your article
 
