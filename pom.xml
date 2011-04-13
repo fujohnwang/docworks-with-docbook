@@ -50,7 +50,6 @@
 							<useExtensions>1</useExtensions>
 							<highlightSource>1</highlightSource>
 							<highlightXslthlConfig>${basedir}/src/main/resources/highlighters/xslthl-config.xml</highlightXslthlConfig>
-							<imgSrcPath>${basedir}/src/main/resources/images</imgSrcPath>
 							<xhtmlCustomization>${basedir}/src/main/resources/xsl/html.xsl</xhtmlCustomization>
 							<htmlCustomization>${basedir}/src/main/resources/xsl/html.xsl</htmlCustomization>
 							<htmlStylesheet>${basedir}/src/main/resources/css/html.css</htmlStylesheet>
