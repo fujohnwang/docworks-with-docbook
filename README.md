@@ -1,4 +1,8 @@
-	__NOTE: Although this is still a usable facility to write document with docbook, but I will NOT upgrade it in the future, as I have moved from docbook to markdown.__
+> NOTE: 
+> 
+> Although this is still a usable facility to write document with docbook, but I will NOT upgrade it in the future, as I have moved from docbook to markdown.
+> 
+> also see <https://github.com/keevol/pandoc_md_book_starter>
 
 This is my personal docbook project which helps me write a lot of blogs and articles.
 I had an Ant-based alike project before which helped me complete my first book - ["UnveilSpring"(Spring揭秘 In Chinese)](http://product.china-pub.com/195969), but it just works. After I moved to Maven, I found the docbkx maven plugin, so it finally helped me build this archetype project.
